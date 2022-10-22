@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes">
+
+<!-- <listeners>
+<listener class-name="week1.RetryFailedTestCases"></listener>
+</listeners>  -->
+	<test name="Test" thread-count="5" verbose="5">
+	<!-- <parameter name="URL" value="https://login.salesforce.com"/> -->
+		<classes>
+		<!-- <class name="week1.Week1Day1CreateOppo"/> -->
+		 <!-- <class name="week1.CreateAccount" /> --> 
+		 <class name="week1.TC001_CreateAccount" /> 
+		  <class name="week1.TC002_EditAccount" />  
+		 <!-- <class name="week1.TC003_DeleteAccount" /> --> 
+		 <!-- <class name="week1.TC004_Assessment_ServiceConsole" />--> 
+		<!-- <class name="week1.EditAccount" /> -->
+		<!--	<class name="week1.DeleteAccount" />-->
+		<!--<class name="week3.CreateTask" /> -->
+		<!--<class name="week2.CreateCase" /> -->	
+		</classes>
+	</test>
+	<!-- <test thread-count="5" name="Edit">
+		<classes>
+			<class name="week1.Week1Day2EditOppo" />
+			<class name="week2.EditCase" />
+			<class name="week3.EditTask" />
+			<class name="week1.EditAccount" />
+		</classes>
+	</test>
+	<test name="Delete" thread-count="4">
+		<classes>
+			<class name="week1.Week1Day2DeleteOppo" />
+			<class name="week1.DeleteAccount" />
+			<class name="week2.DeleteCase" />
+			<class name="week2.CreateCase_Mandatory" />
+			<class name="week1.Week1Day2DeleteOppo" />
+		</classes>
+	</test> -->
+</suite>
