@@ -1,22 +1,21 @@
-package projectspecmethods;
+package projectspecificmethods;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
-import webdriverinterfaceimpl.Basic;
+import webdriverinterface.Basic_test;
 import week1.TestDataProvider;
 
-public class CommonMethods extends Basic{
+public class CommonMethods_test extends Basic_test{
 	public static Properties properties=new Properties();
 	@BeforeMethod
 	public void initliaze() throws IOException {
-		FileInputStream file=new FileInputStream(new File("src/test/resources/AppConfig.properties"));
+		FileInputStream file=new FileInputStream(new File("src/test/resources/AppConfig_test.properties"));
 		properties.load(file);
 		String url=properties.getProperty("appUrl");
 		init(url);
@@ -26,5 +25,4 @@ public class CommonMethods extends Basic{
 	public  Object[][] getData() throws IOException{
 		return TestDataProvider.getSheet(dataSheetName);		
 	}
-	
 }
