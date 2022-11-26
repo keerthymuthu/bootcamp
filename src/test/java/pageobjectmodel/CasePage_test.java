@@ -1,11 +1,19 @@
 package pageobjectmodel;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import projectspecificmethods.CommonMethods_test;
 
 public class CasePage_test extends CommonMethods_test{
+	
+	public CasePage_test(ChromeDriver driver,ExtentTest test) {
+		this.driver=driver;
+		this.test=test;
+	}
 	
 	public CasePage_test clickNewCase() {
 		clickUsinJavaScriptExecutor(identifyElement("xpath", properties.getProperty("CasePage.NewCase.xpath")));

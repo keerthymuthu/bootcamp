@@ -14,7 +14,7 @@ public class TC007_CreateCase_test extends CommonMethods_test{
 	
 	@Test(dataProvider="fetchData")
 	public void createCase(String username,String password,String module,String option,String status,String subject,String description,String output) throws InterruptedException {
-		new LoginPage_test()
+		new LoginPage_test(driver,test)
 		.enterUserName(username)
 		.enterPassword(password)
 		.clickOnLogin()

@@ -1,9 +1,19 @@
 package pageobjectmodel;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.aventstack.extentreports.ExtentTest;
+
 import projectspecificmethods.CommonMethods_test;
 
 public class AccountsPage_test extends CommonMethods_test{
+	
+	public AccountsPage_test(ChromeDriver driver,ExtentTest test) {
+		this.driver=driver;
+		this.test=test;
+	}
+	
 	public AccountsPage_test clickOnNew() {
 		//driver.findElement(By.xpath("//div[text()='New']")).click();
 		click(identifyElement("xpath", properties.getProperty("AccountsPage.clickOnNewAccount.xpath")));

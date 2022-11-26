@@ -12,7 +12,7 @@ public class TC001_CreateAccount_test extends CommonMethods_test{
 	
 	@Test(dataProvider="fetchData")
 	public void createAccount(String username, String password,String module,String name) throws InterruptedException {
-		new LoginPage_test().enterUserName(username).enterPassword(password).clickOnLogin().clickOnAppLauncher()
+		new LoginPage_test(driver,test).enterUserName(username).enterPassword(password).clickOnLogin().clickOnAppLauncher()
 		.clickOnViewAll()
 		.searchAppLauncher(module)
 		.clickOnModule()

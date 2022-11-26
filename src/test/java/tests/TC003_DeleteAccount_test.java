@@ -15,7 +15,7 @@ public class TC003_DeleteAccount_test extends CommonMethods_test{
 
 	@Test(dataProvider="fetchData")
 	public void deleteAccount(String username,String password,String module,String name) throws InterruptedException {
-		new LoginPage_test()
+		new LoginPage_test(driver,test)
 		.enterUserName(username)
 		.enterPassword(password)
 		.clickOnLogin()

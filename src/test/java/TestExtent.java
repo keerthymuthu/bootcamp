@@ -48,5 +48,6 @@ public class TestExtent {
 		node.log(Status.PASS, "Login Successful",m1);
 		
 		extentReports.flush();
+		double n=Math.random();
 	}
 }

@@ -15,7 +15,7 @@ public class TC005_EditOppo_test extends CommonMethods_test{
 	
 	@Test(dataProvider="fetchData")
 	public void editOpportunity(String username,String password,String module,String name,String output,String description) throws InterruptedException {
-		new LoginPage_test()
+		new LoginPage_test(driver,test)
 		.enterUserName(username)
 		.enterPassword(password)
 		.clickOnLogin()

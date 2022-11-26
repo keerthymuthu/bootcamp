@@ -5,10 +5,18 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import projectspecificmethods.CommonMethods_test;
 
 public class OpportunitiesPage_test extends CommonMethods_test{
+	
+	public OpportunitiesPage_test(ChromeDriver driver,ExtentTest test) {
+		this.driver=driver;
+		this.test=test;
+	}
 	
 	public OpportunitiesPage_test createNewOppo() {
 		click(identifyElement("xpath", properties.getProperty("OpportunitiesPage.clickOnNew.xpath")));
