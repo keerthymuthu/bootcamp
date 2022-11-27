@@ -10,12 +10,15 @@ public class TC003_DeleteAccount_test extends CommonMethods_test{
 
 	@BeforeTest
 	public void initValues() {
+		testCaseName = "Account Deletion";
+		testDescription = "Delete an Account";
+		nodes = "Account";
 		dataSheetName="DeleteAccount_TC003";
 	}
 
 	@Test(dataProvider="fetchData")
 	public void deleteAccount(String username,String password,String module,String name) throws InterruptedException {
-		new LoginPage_test(driver,test)
+		new LoginPage_test()
 		.enterUserName(username)
 		.enterPassword(password)
 		.clickOnLogin()

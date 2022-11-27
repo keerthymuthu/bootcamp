@@ -2,6 +2,7 @@ package pageobjectmodel;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
 
@@ -9,10 +10,11 @@ import projectspecificmethods.CommonMethods_test;
 
 public class LoginPage_test extends CommonMethods_test{
 	
-	public LoginPage_test(ChromeDriver driver,ExtentTest test) {
-		this.driver=driver;
-		this.test=test;
-	}
+	/*
+	 * public LoginPage_test(ExtentTest test) { //this.driver=driver;
+	 * this.test=test; }
+	 */
+	 
 	
 	public LoginPage_test enterUserName(String username) {
 		identifyElement("id", properties.getProperty("LoginPage.username.id")).sendKeys(username);
@@ -27,6 +29,7 @@ public class LoginPage_test extends CommonMethods_test{
 	public HomePage_test clickOnLogin() {
 		WebElement ele_login=identifyElement("id", properties.getProperty("LoginPage.LoginButton.id"));
 		click(ele_login);
-		return new HomePage_test(driver,test);
+		//return new HomePage_test(driver,test);
+		return new HomePage_test();
 	}
 }

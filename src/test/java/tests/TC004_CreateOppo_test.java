@@ -16,7 +16,7 @@ public class TC004_CreateOppo_test extends CommonMethods_test{
 	
 	@Test(dataProvider="fetchData")
 	public void createOppo(String username,String password,String module,String name,String output) {
-		new LoginPage_test(driver,test)
+		new LoginPage_test()
 		.enterUserName(username)
 		.enterPassword(password)
 		.clickOnLogin()

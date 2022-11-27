@@ -9,10 +9,10 @@ import projectspecificmethods.CommonMethods_test;
 
 public class AccountsPage_test extends CommonMethods_test{
 	
-	public AccountsPage_test(ChromeDriver driver,ExtentTest test) {
-		this.driver=driver;
-		this.test=test;
-	}
+	/*
+	 * public AccountsPage_test(ExtentTest test) { //this.driver=driver;
+	 * this.test=test; }
+	 */
 	
 	public AccountsPage_test clickOnNew() {
 		//driver.findElement(By.xpath("//div[text()='New']")).click();
@@ -95,7 +95,7 @@ public class AccountsPage_test extends CommonMethods_test{
 		//click(identifyElement("xpath", properties.getProperty("AccountsPage.selectFromSearchResult.xpath")));
 		
 		//clickUsinJavaScriptExecutor(identifyElement("xpath", properties.getProperty("AccountsPage.selectFromSearchResult.xpath")));
-		driver.findElement(By.xpath("//button[@title='Refresh']")).click();
+		getDriver().findElement(By.xpath("//button[@title='Refresh']")).click();
 		//waitForclickability(identifyElement("xpath", properties.getProperty("AccountsPage.selectFromSearchResult.xpath")));
 		Thread.sleep(4000);
 		click(identifyElement("xpath", properties.getProperty("AccountsPage.selectFromSearchResult.xpath")));

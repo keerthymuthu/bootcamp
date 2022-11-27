@@ -10,10 +10,10 @@ import projectspecificmethods.CommonMethods_test;
 
 public class CasePage_test extends CommonMethods_test{
 	
-	public CasePage_test(ChromeDriver driver,ExtentTest test) {
-		this.driver=driver;
-		this.test=test;
-	}
+	/*
+	 * public CasePage_test(ExtentTest test) { //this.driver=driver; this.test=test;
+	 * }
+	 */
 	
 	public CasePage_test clickNewCase() {
 		clickUsinJavaScriptExecutor(identifyElement("xpath", properties.getProperty("CasePage.NewCase.xpath")));

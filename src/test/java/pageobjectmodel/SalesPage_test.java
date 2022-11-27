@@ -1,26 +1,24 @@
 package pageobjectmodel;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.aventstack.extentreports.ExtentTest;
-
 import projectspecificmethods.CommonMethods_test;
 
 public class SalesPage_test extends CommonMethods_test{
 	
-	public SalesPage_test(ChromeDriver driver,ExtentTest test) {
-		this.driver=driver;
-		this.test=test;
-	}
+	/*
+	 * public SalesPage_test(ExtentTest test) { //this.driver=driver;
+	 * this.test=test; }
+	 */
 	
 	public AccountsPage_test clickOnAccount() {
 		clickUsinJavaScriptExecutor(identifyElement("xpath", properties.getProperty("AccountsPage.clickOnAccount.xpath")));
-		return new AccountsPage_test(driver,test);
+		//return new AccountsPage_test(driver,test);
+		return new AccountsPage_test();
 	}
 	
 	public OpportunitiesPage_test clickOnOpportunities() {
 		clickUsinJavaScriptExecutor(identifyElement("xpath", properties.getProperty("OpportunitiesPage.clickOnOpportunity.xpath")));
-		return new OpportunitiesPage_test(driver,test);
+		//return new OpportunitiesPage_test(driver,test);
+		return new OpportunitiesPage_test();
 	}
 	
 	public SalesPage_test clickOnMore() throws InterruptedException {
@@ -38,6 +36,7 @@ public class SalesPage_test extends CommonMethods_test{
 	public CasePage_test clickOnCaseDropDown() {
 		waitForclickability(identifyElement("xpath", properties.getProperty("SalesPage.CaseDropDown.xpath")));
 		click(identifyElement("xpath", properties.getProperty("SalesPage.CaseDropDown.xpath")));
-		return new CasePage_test(driver,test);
+		//return new CasePage_test(driver,test);
+		return new CasePage_test();
 	}
 }

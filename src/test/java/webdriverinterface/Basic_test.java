@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.NoSuchElementException;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -13,29 +12,26 @@ import org.openqa.selenium.InvalidSelectorException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Basic_test extends Reporter implements WebDriverService_test {
 	
-	public ChromeDriver driver;
+	//public ChromeDriver driver;
 	public String dataSheetName;
 	
 	public void init(String url) throws IOException {
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions options=new ChromeOptions();
-		options.addArguments("--disable-notifications");
-		driver=new ChromeDriver(options);
-		driver.get(url);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+		//ChromeOptions options=new ChromeOptions();
+		//options.addArguments("--disable-notifications");
+		//driver=new ChromeDriver(options);
+		setDriver();
+		getDriver().get(url);
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
 	}
 
 	@Override
@@ -43,11 +39,11 @@ public class Basic_test extends Reporter implements WebDriverService_test {
 		// TODO Auto-generated method stub
 		try {
 		switch (locType) {
-		case "id": return driver.findElement(By.id(locValue)); 
-		case "name": return driver.findElement(By.name(locValue));
-		case "class": return driver.findElement(By.className(locValue));
-		case "link" : return driver.findElement(By.linkText(locValue));
-		case "xpath": return driver.findElement(By.xpath(locValue));
+		case "id": return getDriver().findElement(By.id(locValue)); 
+		case "name": return getDriver().findElement(By.name(locValue));
+		case "class": return getDriver().findElement(By.className(locValue));
+		case "link" : return getDriver().findElement(By.linkText(locValue));
+		case "xpath": return getDriver().findElement(By.xpath(locValue));
 		default: break;
 		}
 		}
@@ -152,7 +148,7 @@ public class Basic_test extends Reporter implements WebDriverService_test {
 	public void clickUsinJavaScriptExecutor(WebElement ele) {
 		// TODO Auto-generated method stub
 		try {
-		driver.executeScript("arguments[0].click();", ele);
+			getDriver().executeScript("arguments[0].click();", ele);
 		captureStep(ele.getText()+" clicked","PASS");
 		}
 		catch(InvalidElementStateException e) {
@@ -168,13 +164,13 @@ public class Basic_test extends Reporter implements WebDriverService_test {
 	@Override
 	public void waitForclickability(WebElement ele) {
 		// TODO Auto-generated method stub
-		new WebDriverWait(driver, Duration.ofSeconds(4000)).until(ExpectedConditions.elementToBeClickable(ele));
+		new WebDriverWait(getDriver(), Duration.ofSeconds(4000)).until(ExpectedConditions.elementToBeClickable(ele));
 	}
 
 	@Override
 	public void waitForPresence(By locator) {
 		// TODO Auto-generated method stub
-		new WebDriverWait(driver,Duration.ofSeconds(4000)).until(ExpectedConditions.presenceOfElementLocated(locator));
+		new WebDriverWait(getDriver(),Duration.ofSeconds(4000)).until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 
 	@Override
@@ -193,7 +189,7 @@ public class Basic_test extends Reporter implements WebDriverService_test {
 	public void typeUsingJavaScriptExecutor(WebElement ele, String text) {
 		// TODO Auto-generated method stub
 		try {
-		driver.executeScript("arguments[0].value='"+text+"';", ele);
+			getDriver().executeScript("arguments[0].value='"+text+"';", ele);
 		captureStep(text+" entered successfully", "PASS");
 	}
 	catch(InvalidElementStateException e) {
@@ -223,7 +219,7 @@ public class Basic_test extends Reporter implements WebDriverService_test {
 		// TODO Auto-generated method stub
 		double fileName=Math.random();
 		try {
-			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE), new File("./reports/images/"+fileName+".png"));
+			FileUtils.copyFile(getDriver().getScreenshotAs(OutputType.FILE), new File("./reports/images/"+fileName+".png"));
 		} catch (WebDriverException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

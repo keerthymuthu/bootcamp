@@ -1,18 +1,17 @@
 package webdriverinterface;
 
 import java.io.IOException;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.MediaEntityModelProvider;
-import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-public abstract class Reporter{
+public abstract class Reporter extends DriverInstance{
 	public static ExtentHtmlReporter extentHtmlReporter;
 	public static ExtentReports extent;
-	public ExtentTest testSuite, test;
+	public ExtentTest testSuite;
+	public static ExtentTest test;
 	public String testCaseName, testDescription, nodes;
 	
 	public void startReport() {
